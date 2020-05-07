@@ -44,9 +44,9 @@ cp -a ./${PARENT_PROJECT}/.env ./${WORK_FOLDER}
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
-    # 
-    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
+    # start docker-compose 
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
 else
    echo "Container base of image  telegraf still running!!"
    echo "Please stop first manually"
