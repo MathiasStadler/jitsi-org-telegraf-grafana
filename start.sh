@@ -38,7 +38,7 @@ cp -a ${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 cp  ./jitsi-dashboard/* ${WORK_FOLDER}/grafana-provisioning/dashboards
 
 # check docker container based on telegraf is running
-if "$(docker ps |grep -c telegraf)" ; then
+if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
     ${DOCKER_COMPOSE} -f telegraf-jitsi.yml check -v
@@ -51,7 +51,7 @@ else
 fi
 
 # check docker container based on telegraf is running
-if "$(docker ps |grep -c influxdb)" ; then
+if [[ "$(docker ps |grep -c influxdb)" ]] ; then
     echo "start telegram container"
 else
    echo "Container base of image  influxdb still running!!"
