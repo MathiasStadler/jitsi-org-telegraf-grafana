@@ -1,7 +1,9 @@
 # jitsi-org-telegraf-grafana
 
+## TL;DR;
 
-
+git commit
+git submodule update
 
 
 ## housekeeping 
@@ -74,7 +76,16 @@ pkill -1 telegraf
   data_format = "json"
 
 
+## docker priority of same environment variable
 
+- from here https://docs.docker.com/compose/environment-variables/
 
+When you set the same environment variable in multiple files, here’s the priority used by Compose to choose which value to use:
+
+Compose file
+Shell environment variables
+Environment file
+Dockerfile
+Variable is not defined
 
 
