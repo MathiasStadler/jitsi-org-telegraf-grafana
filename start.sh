@@ -8,7 +8,7 @@ PARENT_PROJECT="telegraf-influxdb-grafana-docker-composer"
 WORK_FOLDER="work"
 
 #  create work folder
-mkdir $WORK_FOLDER
+mkdir -p ./$WORK_FOLDER
 
 
 # detemine ip of docker container that bas on image jitsi/jvb
