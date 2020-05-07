@@ -32,10 +32,13 @@ cat << EOF |tee -a ${WORK_FOLDER}/${TELEGRAF_JITSI_CONF}
 EOF
 
 # copy grafana-provsisioning to work folder
-cp -a ${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
+cp -a ./${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 
 # copy jitsi-dashboard to work folder
-cp  ./jitsi-dashboard/* ${WORK_FOLDER}/grafana-provisioning/dashboards
+cp  ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
+
+# cp env file to work folder
+cp -a ./${PARENT_PROJECT}/.env ./${WORK_FOLDER}
 
 # check docker container based on telegraf is running
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
