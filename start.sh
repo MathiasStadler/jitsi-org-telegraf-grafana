@@ -37,6 +37,14 @@ cp -a ./${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 # copy jitsi-dashboard to work folder
 cp  ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 
+# copy .env to work folder
+cp ./${PARENT_PROJECT}/.env ${WORK_FOLDER}/.env
+
+# change into work folder
+pushd ${WORK_FOLDER}
+
+echo " i'm work in folder ${PWD}"
+
 # check docker container based on telegraf is running
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
@@ -62,3 +70,5 @@ else
    echo "Please stop first manually"
    echo "No influxdb container start" 
 fi
+
+popd
