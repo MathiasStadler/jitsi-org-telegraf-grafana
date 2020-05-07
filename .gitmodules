@@ -1,0 +1,3 @@
+[submodule "telegraf-influxdb-grafana-docker-composer"]
+	path = telegraf-influxdb-grafana-docker-composer
+	url = https://github.com/MathiasStadler/telegraf-influxdb-grafana-docker-composer.git
