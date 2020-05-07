@@ -3,6 +3,7 @@
 # from here here https://explainshell.com/explain?cmd=set+-euxo%20pipefail
 set -euxo pipefail
 
+DOCKER_COMPOSE="/usr/local/bin/docker-compse"
 PARENT_PROJECT="telegraf-influxdb-grafana-docker-composer"
 WORK_FOLDER="work"
 
@@ -39,6 +40,10 @@ cp  ./jitsi-dashboard/* ${PARENT_PROJECT}/grafana-provisioning/dashboards
 # check docker container based on telegraf is running
 if $(docker ps |grep -c telegraf) ; then
     echo "start telegram container"
+    # check docker-compose  file config
+    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml check -v
+    # 
+    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
 else
    echo "Container base of image  telegraf still running!!"
    echo "Please stop first manually"
