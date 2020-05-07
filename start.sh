@@ -40,6 +40,8 @@ cp  ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 # copy .env to work folder
 cp ./${PARENT_PROJECT}/.env ${WORK_FOLDER}/.env
 
+
+
 # change into work folder
 pushd ${WORK_FOLDER}
 
