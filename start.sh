@@ -41,7 +41,7 @@ cp  ./jitsi-dashboard/* ${WORK_FOLDER}/grafana-provisioning/dashboards
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -v
+    ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
     # 
     ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
 else
@@ -54,7 +54,7 @@ fi
 if [[ "$(docker ps |grep -c influxdb)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml config -v
+    ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml config -q
     # 
     ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml up -d
 else
