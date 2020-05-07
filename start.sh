@@ -57,9 +57,9 @@ fi
 if [[ "$(docker ps |grep -c influxdb)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml config -q
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml config -q
     # 
-    ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml up -d
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml up -d
 else
    echo "Container base of image  influxdb still running!!"
    echo "Please stop first manually"

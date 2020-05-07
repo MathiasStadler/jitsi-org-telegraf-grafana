@@ -3,7 +3,7 @@ services:
   telegraf:
     env_file:
       # set in run.sh
-     - ../${PARENT_PROJECT}/.env
+     - ../${WORK_FOLDER}/.env
     image: telegraf:${IMAGE_TAG_TELEGRAF}
     network_mode: host
     # https://docs.docker.com/compose/compose-file/
