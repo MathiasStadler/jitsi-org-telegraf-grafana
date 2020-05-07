@@ -49,9 +49,9 @@ echo " i'm work in folder ${PWD}"
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
+    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../telegraf-jitsi.yml config -q
     # start docker-compose 
-    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
+    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../telegraf-jitsi.yml up -d
 else
    echo "Container base of image  telegraf still running!!"
    echo "Please stop first manually"
@@ -62,9 +62,9 @@ fi
 if [[ "$(docker ps |grep -c influxdb)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml config -q
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml config -q
     # 
-    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f influxdb-grafana-jitsi.yml up -d
+    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml up -d
 else
    echo "Container base of image  influxdb still running!!"
    echo "Please stop first manually"
