@@ -1,6 +1,9 @@
 version: "3"
 services:
   influxdb:
+    env_file:
+      # set in run.sh
+     - ../${PARENT_PROJECT}/.env
     image: influxdb:${IMAGE_TAG_INFLUXDB}
     restart: ${RESTART_POLICY}
     container_name: influxdb
