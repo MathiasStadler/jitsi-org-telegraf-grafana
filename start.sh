@@ -61,7 +61,7 @@ else
 fi
 
 # check docker container based on telegraf is running
-if [[ "$(docker ps |grep -c influxdb)" = "0" ]] ; then
+if [[ "$(docker ps |grep -c influxdb)" = "0" ]]; then
     echo "start telegram container"
     # check docker-compose  file config
     PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml config -q
