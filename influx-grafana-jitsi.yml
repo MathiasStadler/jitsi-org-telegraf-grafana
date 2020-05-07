@@ -3,7 +3,7 @@ services:
   influxdb:
     env_file:
       # set in run.sh
-     - ./${WORK_FOLDER}/.env
+     - ./${PARENT_PROJECT}/.env
     image: influxdb:${IMAGE_TAG_INFLUXDB}
     restart: ${RESTART_POLICY}
     container_name: influxdb
@@ -35,7 +35,7 @@ services:
   grafana:
     env_file:
       # set in run.sh
-      - ./${WORK_FOLDER}/.env
+      - ./${PARENT_PROJECT}/.env
     image: grafana/grafana:${IMAGE_TAG_GRAFANA}
     restart: ${RESTART_POLICY}
     container_name: grafana

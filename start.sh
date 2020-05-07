@@ -37,16 +37,13 @@ cp -a ./${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 # copy jitsi-dashboard to work folder
 cp  ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 
-# cp env file to work folder
-cp -a ./${PARENT_PROJECT}/.env ./${WORK_FOLDER}
-
 # check docker container based on telegraf is running
 if [[ "$(docker ps |grep -c telegraf)" ]] ; then
     echo "start telegram container"
     # check docker-compose  file config
-    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
+    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml config -q
     # start docker-compose 
-    WORK_FOLDER=${WORK_FOLDER} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
+    PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f telegraf-jitsi.yml up -d
 else
    echo "Container base of image  telegraf still running!!"
    echo "Please stop first manually"
