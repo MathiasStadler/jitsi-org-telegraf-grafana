@@ -3,7 +3,7 @@
 # from here here https://explainshell.com/explain?cmd=set+-euxo%20pipefail
 set -euxo pipefail
 
-DOCKER_COMPOSE="/usr/local/bin/docker-compse"
+DOCKER_COMPOSE="/usr/local/bin/docker-compose"
 PARENT_PROJECT="telegraf-influxdb-grafana-docker-composer"
 WORK_FOLDER="work"
 
