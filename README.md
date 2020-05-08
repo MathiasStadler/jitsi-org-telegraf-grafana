@@ -1,12 +1,11 @@
 # jitsi-org-telegraf-grafana
 
-## TL;DR;
+## TL;DR
 
 git commit
 git submodule update
 
-
-## housekeeping 
+## housekeeping
 
 - start code server
 
@@ -19,15 +18,27 @@ git config --global user.name "Mathias Stadler"
 
 git config --global user.EMAIL "email@mathias-stadler.de"
 
-# https://help.github.com/en/github/using-git/caching-your-github-password-in-git
+https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 
 git config --global credential.helper 'cache --timeout=3600'
 
-- install vscodeextension
+- install vscode extension
 Press Ctrl+P or Cmd+P and type:
 ext install Gruntfuggly.todo-tree
 ext install markdownlint
 ext install code-spell-checker
+
+- install shellcheck extension
+
+```bash
+# inside the terminal
+sudo apt-get update
+sudo apt-get install -y shellcheck
+```
+
+- in command line ( Ctrl+P or Cmd+P )
+ext install shellcheck
+ext install shell-format
 
 ## source
 
@@ -62,8 +73,8 @@ docker network inspect bridge
 docker network inspect dockerjitsimeet_meet.jitsi
 
 ## reread conf without shutdown
-pkill -1 telegraf
 
+pkill -1 telegraf
 
 /etc/telegraf/telegraf.d/jitsi.conf
 
@@ -74,7 +85,6 @@ pkill -1 telegraf
   ]
 
   data_format = "json"
-
 
 ## docker priority of same environment variable
 
@@ -87,5 +97,3 @@ Shell environment variables
 Environment file
 Dockerfile
 Variable is not defined
-
-
