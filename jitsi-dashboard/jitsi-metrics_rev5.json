@@ -1,43 +1,8 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_TELEGRAFINFLUXDB",
-      "label": "TelegrafInfluxDB",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.7.2"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:454",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -52,12 +17,12 @@
   "editable": true,
   "gnetId": 11969,
   "graphTooltip": 2,
-  "id": null,
-  "iteration": 1588949402998,
+  "id": 4,
+  "iteration": 1588950813330,
   "links": [],
   "panels": [
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -139,7 +104,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -221,7 +186,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -311,7 +276,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -405,7 +370,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -489,7 +454,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -562,7 +527,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -637,7 +602,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -712,7 +677,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 4,
         "w": 4,
@@ -790,7 +755,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -861,7 +826,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -934,7 +899,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -1009,7 +974,7 @@
       "type": "stat"
     },
     {
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "gridPos": {
         "h": 2,
         "w": 2,
@@ -1088,7 +1053,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1262,7 +1227,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1437,7 +1402,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1611,7 +1576,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_TELEGRAFINFLUXDB}",
+      "datasource": "TelegrafInfluxDB",
       "decimals": 0,
       "fill": 1,
       "fillGradient": 5,
@@ -1797,8 +1762,11 @@
     "list": [
       {
         "allValue": null,
-        "current": {},
-        "datasource": "${DS_TELEGRAFINFLUXDB}",
+        "current": {
+          "text": "trapapa-ThinkCentre-M92P",
+          "value": "trapapa-ThinkCentre-M92P"
+        },
+        "datasource": "TelegrafInfluxDB",
         "definition": "show tag values from \"jitsi_stats\" with key=\"host\"",
         "hide": 0,
         "includeAll": false,
@@ -1839,10 +1807,10 @@
     ]
   },
   "timezone": "",
-  "title": "My Jitsi Metrics",
-  "uid": "mcfIHGrZze567",
+  "title": "Jitsi Metrics",
+  "uid": "mcfIHGrZzffff",
   "variables": {
     "list": []
   },
-  "version": 3
+  "version": 1
 }
