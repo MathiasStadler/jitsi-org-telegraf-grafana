@@ -34,6 +34,9 @@ EOF
 # copy grafana-provisioning to work folder
 cp -a ./${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 
+# copy influxdb.conf
+cp -a ./${PARENT_PROJECT}/influxdb.conf ${WORK_FOLDER}
+
 # copy jitsi-dashboard to work folder
 cp ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 
