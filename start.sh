@@ -24,7 +24,6 @@ cat <<EOF | tee -a ${WORK_FOLDER}/${TELEGRAF_JITSI_CONF}
 [[inputs.http]]
   name_override = "jitsi_stats"
   urls = [
-    # "http://localhost:8080/colibri/stats"
     "http://${IP_JITSI_JVB}:8080/colibri/stats"
   ]
 
