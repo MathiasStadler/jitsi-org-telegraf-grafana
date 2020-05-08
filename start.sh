@@ -65,7 +65,7 @@ if [ ! -f $SERVER_CERT_PEM ]; then
     certtool --generate-self-signed --load-privkey "${SERVER_KEY_PEM}" --outfile "${SERVER_CERT_PEM}" --template ./${PARENT_PROJECT}/cert.cfg 
     echo "..done"
 else
-  echo " FIle ${SERVER_KEY_PEM} found"
+  echo " FIle ${SERVER_CERT_PEM} found"
 fi
 
 
