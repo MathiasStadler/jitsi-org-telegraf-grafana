@@ -19,7 +19,7 @@ services:
       - INFLUXDB_URI
     volumes:
       - ./${PARENT_PROJECT}/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-      - ./work/telegraf_jitsi.conf:/etc/telegraf/telegraf.d/telegraf_jitsi.conf:ro
+      - ./telegraf_jitsi.conf:/etc/telegraf/telegraf.d/telegraf_jitsi.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # from here
       # https://github.com/influxdata/telegraf/blob/master/docs/FAQ.md 
