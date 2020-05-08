@@ -22,10 +22,10 @@ services:
       # sudo mkdir -p /srv/docker/influxdb/data
       ## @TODO delete - /srv/docker/influxdb/data:/var/lib/influxdb
       - influxdb-storage:/var/lib/influxdb
-      - ./${PARENT_PROJECT}/influxdb.conf:/etc/influxdb/influxdb.conf
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
       # for test purpose ONLY
-      - ./${PARENT_PROJECT}/server-cert.pem:/etc/ssl/influxdb/server-cert.pem:ro
-      - ./${PARENT_PROJECT}/server-key.pem:/etc/ssl/influxdb/server-key.pem:ro
+      - ./server-cert.pem:/etc/ssl/influxdb/server-cert.pem:ro
+      - ./server-key.pem:/etc/ssl/influxdb/server-key.pem:ro
     networks:
       influxdb:
 
