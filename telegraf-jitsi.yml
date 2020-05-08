@@ -2,6 +2,7 @@ version: "3"
 services:
   telegraf:
     image: telegraf:${IMAGE_TAG_TELEGRAF}
+    command: --config-directory /etc/telegraf/telegraf.d
     network_mode: host
     # https://docs.docker.com/compose/compose-file/
     cap_add:
