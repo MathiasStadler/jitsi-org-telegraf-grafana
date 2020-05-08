@@ -97,3 +97,7 @@ Shell environment variables
 Environment file
 Dockerfile
 Variable is not defined
+
+
+
+Build context is always the location of docker-compose.yaml

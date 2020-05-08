@@ -5,7 +5,7 @@ set -euxo pipefail
 # set -euo pipefail # without x
 
 DOCKER_COMPOSE="/usr/local/bin/docker-compose"
-PARENT_PROJECT="telegraf-influxdb-grafana-docker-composer"
+PARENT_PROJECT="../telegraf-influxdb-grafana-docker-composer"
 WORK_FOLDER="work"
 
 #  create work folder
@@ -31,17 +31,22 @@ cat <<EOF | tee -a ${WORK_FOLDER}/${TELEGRAF_JITSI_CONF}
   data_format = "json"
 EOF
 
+## copy to work all ws we need to run
+
 # copy grafana-provisioning to work folder
 cp -a ./${PARENT_PROJECT}/grafana-provisioning ${WORK_FOLDER}
 
 # copy influxdb.conf
-cp -a ./${PARENT_PROJECT}/influxdb.conf ${WORK_FOLDER
+cp -a ./${PARENT_PROJECT}/influxdb.conf ${WORK_FOLDER}
 
 # copy jitsi-dashboard to work folder
 cp ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 
 # copy .env to work folder
 cp ./${PARENT_PROJECT}/.env ${WORK_FOLDER}/.env
+
+# docker-composer yaml files
+cp telegraf-jitsi.yml influxdb-grafana-jitsi.yml ./${WORK_FOLDER}
 
 # change into work folder
 pushd ${WORK_FOLDER}
@@ -84,9 +89,9 @@ fi
 if [[ "$(docker ps | grep -c telegraf)" = "0" ]]; then
   echo "start telegram container"
   # check docker-compose  file config
-  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../telegraf-jitsi.yml config -q
+  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ./telegraf-jitsi.yml config -q
   # start docker-compose
-  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../telegraf-jitsi.yml up -d
+  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ./telegraf-jitsi.yml up -d
 else
   echo "Container base of image  telegraf still running!"
   echo "Please stop first manually and run the command again"
@@ -97,9 +102,9 @@ fi
 if [[ "$(docker ps | grep -c influxdb)" = "0" ]]; then
   echo "start telegram container"
   # check docker-compose  file config
-  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml config -q
+  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ./influxdb-grafana-jitsi.yml config -q
   #
-  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml up -d
+  PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ./influxdb-grafana-jitsi.yml up -d
 else
   echo "Container base of image  influxdb still running!!"
   echo "Please stop first manually and run the command again"
