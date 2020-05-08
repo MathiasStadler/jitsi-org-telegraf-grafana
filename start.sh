@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # from here here https://explainshell.com/explain?cmd=set+-euxo%20pipefail
-set -euxo pipefail
+# set -euxo pipefail
+set -euo pipefail # without x
 
 DOCKER_COMPOSE="/usr/local/bin/docker-compose"
 PARENT_PROJECT="telegraf-influxdb-grafana-docker-composer"
@@ -9,7 +10,6 @@ WORK_FOLDER="work"
 
 #  create work folder
 mkdir -p ./$WORK_FOLDER
-
 
 # detemine ip of docker container that bas on image jitsi/jvb
 IP_JITSI_JVB=$(docker ps |grep -i jitsi/jvb |awk  '{print $1}'|xargs docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}')
@@ -40,11 +40,10 @@ cp  ./jitsi-dashboard/* ./${WORK_FOLDER}/grafana-provisioning/dashboards
 # copy .env to work folder
 cp ./${PARENT_PROJECT}/.env ${WORK_FOLDER}/.env
 
-
-
 # change into work folder
 pushd ${WORK_FOLDER}
 
+# debug
 echo " i'm work in folder ${PWD}"
 
 # check docker container based on telegraf is running
@@ -55,13 +54,13 @@ if [[ "$(docker ps |grep -c telegraf)" = "0" ]]; then
     # start docker-compose 
     PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../telegraf-jitsi.yml up -d
 else
-   echo "Container base of image  telegraf still running!!"
-   echo "Please stop first manually"
+   echo "Container base of image  telegraf still running!"
+   echo "Please stop first manually and run the command again"
    echo "No telegraf container start" 
 fi
 
 # check docker container based on telegraf is running
-if [[ "$(docker ps |grep -c influxdb)" = "0" ]]; then
+if [[ "$(docker ps |grep -c influxdb)" = "0" ]]; then
     echo "start telegram container"
     # check docker-compose  file config
     PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml config -q
@@ -69,7 +68,7 @@ if [[ "$(docker ps |grep -c influxdb)" = "0" ]]; then
     PARENT_PROJECT=${PARENT_PROJECT} ${DOCKER_COMPOSE} -f ../influxdb-grafana-jitsi.yml up -d
 else
    echo "Container base of image  influxdb still running!!"
-   echo "Please stop first manually"
+   echo "Please stop first manually and run the command again"
    echo "No influxdb container start" 
 fi
 
